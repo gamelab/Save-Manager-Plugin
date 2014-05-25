@@ -41,6 +41,8 @@
         <div id="api-tabview-panel">
             <ul id="api-classes" class="apis classes">
             
+                <li><a href="../classes/Kiwi.Plugins.ParticlePack1.html">Kiwi.Plugins.ParticlePack1</a></li>
+            
                 <li><a href="../classes/LocalStorage.html">LocalStorage</a></li>
             
                 <li><a href="../classes/SaveManager.html">SaveManager</a></li>
@@ -48,6 +50,10 @@
             </ul>
 
             <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/Kiwi.html">Kiwi</a></li>
+            
+                <li><a href="../modules/Kiwi.Plugins.html">Kiwi.Plugins</a></li>
             
                 <li><a href="../modules/Plugins.html">Plugins</a></li>
             
@@ -92,11 +98,38 @@
 
 <div class="file">
     <pre class="code prettyprint linenums">
+/**
+* @module Kiwi
+* @submodule Kiwi.Plugins
+* @namespace Kiwi.Plugins
+* @class ParticlePack1
+* @main
+*/
 Kiwi.Plugins.SaveGame = {
+  
+    /**
+    * The name of this plugin.
+    * @property name
+    * @type String
+    * @public
+    */
+    name: &#x27;SaveGame&#x27;,   
 
-    name: &#x27;SaveGame&#x27;,
-    version: &#x27;1.0.1&#x27;
+    /**
+    * The version of this plugin in semver (semantic versioning) format
+    * @property version
+    * @type String
+    * @public
+    */
+    version: &#x27;1.0.1&#x27;,
     
+    /**
+    * The minimum version of Kiwi.js required to run this plugin in semver (semantic versioning) format
+    * @property minimumKiwiVersion
+    * @type String
+    * @public
+    */
+    minimumKiwiVersion:&#x27;0.6.0&#x27;
 };
 
 Kiwi.PluginManager.register(Kiwi.Plugins.SaveGame);

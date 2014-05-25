@@ -1,5 +1,4 @@
 /**
-* For a walkthrough on setting up the particle pack plugin check the <a href="https://github.com/gamelab/particle-pack-1-plugin/blob/master/README.md"><README./a> 
 * @module Kiwi
 * @submodule Kiwi.Plugins
 * @namespace Kiwi.Plugins
