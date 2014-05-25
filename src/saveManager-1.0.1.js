@@ -1,8 +1,36 @@
+/**
+* For a walkthrough on setting up the particle pack plugin check the <a href="https://github.com/gamelab/particle-pack-1-plugin/blob/master/README.md"><README./a> 
+* @module Kiwi
+* @submodule Kiwi.Plugins
+* @namespace Kiwi.Plugins
+* @class ParticlePack1
+* @main
+*/
 Kiwi.Plugins.SaveGame = {
+  
+    /**
+    * The name of this plugin.
+    * @property name
+    * @type String
+    * @public
+    */
+    name: 'SaveGame',   
 
-    name: 'SaveGame',
-    version: '1.0.1'
+    /**
+    * The version of this plugin in semver (semantic versioning) format
+    * @property version
+    * @type String
+    * @public
+    */
+    version: '1.0.1',
     
+    /**
+    * The minimum version of Kiwi.js required to run this plugin in semver (semantic versioning) format
+    * @property minimumKiwiVersion
+    * @type String
+    * @public
+    */
+    minimumKiwiVersion:'0.6.0'
 };
 
 Kiwi.PluginManager.register(Kiwi.Plugins.SaveGame);
