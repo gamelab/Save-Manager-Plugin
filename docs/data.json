@@ -1,0 +1,649 @@
+{
+    "project": {
+        "name": "SaveManager",
+        "description": "This plugin helps to bring some basic 'save game' functionality by the way of LocalStorage. In the future other save game methods/functionality may also be developed and so this feature comes with built in mind",
+        "version": "1.0.1",
+        "url": "http://kiwijs.org/"
+    },
+    "files": {
+        "src\\saveManager-1.0.1.js": {
+            "name": "src\\saveManager-1.0.1.js",
+            "modules": {
+                "Plugins": 1,
+                "SaveGame": 1
+            },
+            "classes": {
+                "SaveManager": 1,
+                "LocalStorage": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "Plugins": {
+            "name": "Plugins",
+            "submodules": {
+                "SaveGame": 1
+            },
+            "classes": {
+                "SaveManager": 1,
+                "LocalStorage": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\saveManager-1.0.1.js",
+            "line": 221
+        },
+        "SaveGame": {
+            "name": "SaveGame",
+            "submodules": {},
+            "classes": {
+                "SaveManager": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "Plugins",
+            "namespace": "",
+            "file": "src\\saveManager-1.0.1.js",
+            "line": 36,
+            "description": "Is the section of the Plugins that holds the various ways that deal with the saving of information. \nThe area in the information is stored can be a varierty of places (e.t.c LocalStorage, on a Server)\nand as such when saving you have to go through the SaveManager first",
+            "tag": "main",
+            "itemtype": "main"
+        }
+    },
+    "classes": {
+        "SaveManager": {
+            "name": "SaveManager",
+            "shortname": "SaveManager",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Plugins",
+            "submodule": "SaveGame",
+            "namespace": "",
+            "file": "src\\saveManager-1.0.1.js",
+            "line": 36,
+            "description": "Is responsible for the storage and management of the various ways a Developer can save game information.\nThis is useful as in the future there will be a variety of different ways/locations you can save information in. \nExample: You may want to save information locally so you would use the localStorage area on this saveManager but if you wanted the information saved on a server then you would use a different 'plugin' that would save it onto a server.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "game",
+                    "description": "",
+                    "type": "Game"
+                }
+            ],
+            "return": {
+                "description": "SaveManager"
+            }
+        },
+        "LocalStorage": {
+            "name": "LocalStorage",
+            "shortname": "LocalStorage",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Plugins",
+            "namespace": "",
+            "file": "src\\saveManager-1.0.1.js",
+            "line": 221,
+            "description": "Handles the saving of information through localStorage for a Kiwi Game.\nAll of the information that is saved using this object is stored based on the name of the Game.\nSo be careful when dealing with multiple games of the same name, as the data can conflict.",
+            "params": [
+                {
+                    "name": "game",
+                    "description": "",
+                    "type": "Game"
+                }
+            ],
+            "return": {
+                "description": "LocalStorage"
+            }
+        }
+    },
+    "classitems": [
+        {
+            "file": "src\\saveManager-1.0.1.js",
+            "line": 11,
+            "description": "The create method that the plugin manager will execute when the game this plugin is on is created.",
+            "itemtype": "method",
+            "name": "SaveGame.create",
+            "params": [
+                {
+                    "name": "game",
+                    "description": "The game that this Plugin is being created on/should be created on.",
+                    "type": "Game"
+                }
+            ],
+            "return": {
+                "description": "SaveManager"
+            },
+            "class": "SaveManager"
+        },
+        {
+            "file": "src\\saveManager-1.0.1.js",
+            "line": 48,
+            "description": "The game that this SaveManager belongs to.",
+            "itemtype": "property",
+            "name": "game",
+            "type": "Game",
+            "access": "public",
+            "tagname": "",
+            "class": "SaveManager",
+            "module": "Plugins",
+            "submodule": "SaveGame"
+        },
+        {
+            "file": "src\\saveManager-1.0.1.js",
+            "line": 58,
+            "description": "Returns the type of object that this is.",
+            "itemtype": "method",
+            "name": "objType",
+            "return": {
+                "description": "string"
+            },
+            "access": "public",
+            "tagname": "",
+            "class": "SaveManager",
+            "module": "Plugins",
+            "submodule": "SaveGame"
+        },
+        {
+            "file": "src\\saveManager-1.0.1.js",
+            "line": 68,
+            "description": "The boot method for this SaveManager is executed when the game is in the process of starting up.\nThis is an internal method used by Kiwi and as such a Dev should not need to use it.",
+            "itemtype": "method",
+            "name": "boot",
+            "access": "protected",
+            "tagname": "",
+            "class": "SaveManager",
+            "module": "Plugins",
+            "submodule": "SaveGame"
+        },
+        {
+            "file": "src\\saveManager-1.0.1.js",
+            "line": 76,
+            "description": "Contains the object that handles localStorage saving of data for this game.",
+            "itemtype": "property",
+            "name": "localStorage",
+            "access": "public",
+            "tagname": "",
+            "class": "SaveManager",
+            "module": "Plugins",
+            "submodule": "SaveGame"
+        },
+        {
+            "file": "src\\saveManager-1.0.1.js",
+            "line": 83,
+            "description": "Refer's to the current saving 'method' that is being. More useful if you have multiple different ways of saving information and you want to switch between them.",
+            "itemtype": "property",
+            "name": "current",
+            "access": "public",
+            "tagname": "",
+            "class": "SaveManager",
+            "module": "Plugins",
+            "submodule": "SaveGame"
+        },
+        {
+            "file": "src\\saveManager-1.0.1.js",
+            "line": 92,
+            "description": "Switches the current method of saving that being used to a different one based on the type passed.",
+            "itemtype": "method",
+            "name": "switchCurrent",
+            "params": [
+                {
+                    "name": "type",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "access": "public",
+            "tagname": "",
+            "class": "SaveManager",
+            "module": "Plugins",
+            "submodule": "SaveGame"
+        },
+        {
+            "file": "src\\saveManager-1.0.1.js",
+            "line": 111,
+            "description": "Returns add method on the current saving method that is being used.",
+            "itemtype": "method",
+            "name": "add",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "data",
+                    "description": "",
+                    "type": "Any"
+                },
+                {
+                    "name": "save",
+                    "description": "",
+                    "type": "Boolean"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "access": "public",
+            "tagname": "",
+            "class": "SaveManager",
+            "module": "Plugins",
+            "submodule": "SaveGame"
+        },
+        {
+            "file": "src\\saveManager-1.0.1.js",
+            "line": 128,
+            "description": "Returns edit method on the current saving method that is being used.",
+            "itemtype": "method",
+            "name": "edit",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "data",
+                    "description": "",
+                    "type": "Any"
+                },
+                {
+                    "name": "save",
+                    "description": "",
+                    "type": "Boolean"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "access": "public",
+            "tagname": "",
+            "class": "SaveManager",
+            "module": "Plugins",
+            "submodule": "SaveGame"
+        },
+        {
+            "file": "src\\saveManager-1.0.1.js",
+            "line": 145,
+            "description": "Returns remove method on the current saving method that is being used.",
+            "itemtype": "method",
+            "name": "remove",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "save",
+                    "description": "",
+                    "type": "Boolean"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "access": "public",
+            "tagname": "",
+            "class": "SaveManager",
+            "module": "Plugins",
+            "submodule": "SaveGame"
+        },
+        {
+            "file": "src\\saveManager-1.0.1.js",
+            "line": 161,
+            "description": "Returns getData method on the current saving method that is being used.",
+            "itemtype": "method",
+            "name": "getData",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "access": "public",
+            "tagname": "",
+            "class": "SaveManager",
+            "module": "Plugins",
+            "submodule": "SaveGame"
+        },
+        {
+            "file": "src\\saveManager-1.0.1.js",
+            "line": 176,
+            "description": "Returns save method on the current saving method that is being used.",
+            "itemtype": "method",
+            "name": "save",
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "access": "public",
+            "tagname": "",
+            "class": "SaveManager",
+            "module": "Plugins",
+            "submodule": "SaveGame"
+        },
+        {
+            "file": "src\\saveManager-1.0.1.js",
+            "line": 190,
+            "description": "Returns the exists method on the current saving method that is being used.",
+            "itemtype": "method",
+            "name": "exists",
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "access": "public",
+            "tagname": "",
+            "class": "SaveManager",
+            "module": "Plugins",
+            "submodule": "SaveGame"
+        },
+        {
+            "file": "src\\saveManager-1.0.1.js",
+            "line": 204,
+            "description": "A Static property with the number associated with the used of localstorage method.",
+            "itemtype": "property",
+            "name": "LOCAL_STORAGE",
+            "type": "number",
+            "static": 1,
+            "default": "1",
+            "access": "public",
+            "tagname": "",
+            "class": "SaveManager",
+            "module": "Plugins",
+            "submodule": "SaveGame"
+        },
+        {
+            "file": "src\\saveManager-1.0.1.js",
+            "line": 233,
+            "description": "Holds all of the data that is currently in OR that is to be saved in localStorage. Private modification only.",
+            "itemtype": "property",
+            "name": "_data",
+            "type": "Object",
+            "access": "private",
+            "tagname": "",
+            "class": "LocalStorage",
+            "module": "Plugins"
+        },
+        {
+            "file": "src\\saveManager-1.0.1.js",
+            "line": 241,
+            "description": "If the localStorage method of saving is supported on this game or not.\nThis can be due to the browser not supporting localStorage or localStorage being full when the game was loading.",
+            "itemtype": "property",
+            "name": "_supported",
+            "type": "Boolean",
+            "access": "private",
+            "tagname": "",
+            "class": "LocalStorage",
+            "module": "Plugins"
+        },
+        {
+            "file": "src\\saveManager-1.0.1.js",
+            "line": 254,
+            "description": "Returns the data object, note that this is a READ only property.",
+            "itemtype": "property",
+            "name": "data",
+            "type": "Object",
+            "access": "public",
+            "tagname": "",
+            "class": "LocalStorage",
+            "module": "Plugins"
+        },
+        {
+            "file": "src\\saveManager-1.0.1.js",
+            "line": 268,
+            "description": "Returns whether or not the localStorage method of saving information is supported or not.",
+            "itemtype": "property",
+            "name": "supported",
+            "type": "Boolean",
+            "access": "public",
+            "tagname": "",
+            "class": "LocalStorage",
+            "module": "Plugins"
+        },
+        {
+            "file": "src\\saveManager-1.0.1.js",
+            "line": 282,
+            "description": "Returns the type of object that this is.",
+            "itemtype": "method",
+            "name": "objType",
+            "return": {
+                "description": "String"
+            },
+            "access": "public",
+            "tagname": "",
+            "class": "LocalStorage",
+            "module": "Plugins"
+        },
+        {
+            "file": "src\\saveManager-1.0.1.js",
+            "line": 292,
+            "description": "This method is executed upon the creation of the localStorage object and is used internall only!",
+            "itemtype": "method",
+            "name": "_retrieveData",
+            "access": "private",
+            "tagname": "",
+            "class": "LocalStorage",
+            "module": "Plugins"
+        },
+        {
+            "file": "src\\saveManager-1.0.1.js",
+            "line": 309,
+            "description": "Creates (or tried to create) a new localStroage object for this game. If it fails it is due to lack of memory.",
+            "itemtype": "method",
+            "name": "_create",
+            "access": "private",
+            "tagname": "",
+            "class": "LocalStorage",
+            "module": "Plugins"
+        },
+        {
+            "file": "src\\saveManager-1.0.1.js",
+            "line": 326,
+            "description": "Adds a new piece of data/information to the data object to be saved. \nNote: Does not check to see if the information already exists, so if it does that information is overriden.",
+            "itemtype": "method",
+            "name": "add",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "The key for the piece of information you want to save. So that you can access it later.",
+                    "type": "String"
+                },
+                {
+                    "name": "data",
+                    "description": "The data that you want to save.",
+                    "type": "Any"
+                },
+                {
+                    "name": "save",
+                    "description": "If you want to save the information immediately.",
+                    "type": "Boolean"
+                }
+            ],
+            "return": {
+                "description": "Whether the information was successfully added or not.",
+                "type": "Boolean"
+            },
+            "access": "public",
+            "tagname": "",
+            "class": "LocalStorage",
+            "module": "Plugins"
+        },
+        {
+            "file": "src\\saveManager-1.0.1.js",
+            "line": 354,
+            "description": "Edits a currently existing piece of information that has been saved.",
+            "itemtype": "method",
+            "name": "edit",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "The piece of information you want to edit.",
+                    "type": "String"
+                },
+                {
+                    "name": "data",
+                    "description": "The new information to save.",
+                    "type": "Any"
+                },
+                {
+                    "name": "save",
+                    "description": "If the information should be immediately saved or not.",
+                    "type": "Boolean"
+                }
+            ],
+            "return": {
+                "description": "A boolean indicating whether or not the information was succesfully modified or not.",
+                "type": "Boolean"
+            },
+            "access": "public",
+            "tagname": "",
+            "class": "LocalStorage",
+            "module": "Plugins"
+        },
+        {
+            "file": "src\\saveManager-1.0.1.js",
+            "line": 380,
+            "description": "Returns a piece of information/data that is stored based on the key that is provided. \nIf that key does not exist then null is returned.",
+            "itemtype": "method",
+            "name": "getData",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "The key for the piece of information you want to retrieve.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "access": "public",
+            "tagname": "",
+            "class": "LocalStorage",
+            "module": "Plugins"
+        },
+        {
+            "file": "src\\saveManager-1.0.1.js",
+            "line": 397,
+            "description": "Returns a boolean indicating whether or a piece of information exists (has been saved or will be saved) based on a key that is provided.",
+            "itemtype": "method",
+            "name": "exists",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "The key for the piece of information you want to check.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "access": "public",
+            "tagname": "",
+            "class": "LocalStorage",
+            "module": "Plugins"
+        },
+        {
+            "file": "src\\saveManager-1.0.1.js",
+            "line": 408,
+            "description": "Removes/deletes a piece of information.",
+            "itemtype": "method",
+            "name": "remove",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "The key of the information you want to remove.",
+                    "type": "String"
+                },
+                {
+                    "name": "save",
+                    "description": "If the save method should be executed right away or not.",
+                    "type": "Boolean"
+                }
+            ],
+            "return": {
+                "description": "If it was successful.",
+                "type": "Boolean"
+            },
+            "access": "public",
+            "tagname": "",
+            "class": "LocalStorage",
+            "module": "Plugins"
+        },
+        {
+            "file": "src\\saveManager-1.0.1.js",
+            "line": 432,
+            "description": "Used to remove all developer saved values from localStorage.",
+            "itemtype": "method",
+            "name": "clear",
+            "params": [
+                {
+                    "name": "save",
+                    "description": "If the save method should be executed or not.",
+                    "type": "Boolean"
+                }
+            ],
+            "access": "public",
+            "tagname": "",
+            "class": "LocalStorage",
+            "module": "Plugins"
+        },
+        {
+            "file": "src\\saveManager-1.0.1.js",
+            "line": 447,
+            "description": "Saves the information that is stored in the _data property into localStorage. \nReturns a boolean indicating whether or not the save was successful. \nIf it was unsuccessful then localStorage is full and cannot be used until cleared.",
+            "itemtype": "method",
+            "name": "save",
+            "return": {
+                "description": "If the saving was successful",
+                "type": "Boolean"
+            },
+            "access": "public",
+            "tagname": "",
+            "class": "LocalStorage",
+            "module": "Plugins"
+        },
+        {
+            "file": "src\\saveManager-1.0.1.js",
+            "line": 471,
+            "description": "Loads all of the information from LocalStorage. \nNote: Reset's all of the information currently saved in the _data object to the information saved in localStorage.",
+            "itemtype": "method",
+            "name": "load",
+            "return": {
+                "description": "If the loading was succesful or not.",
+                "type": "Boolean"
+            },
+            "access": "public",
+            "tagname": "",
+            "class": "LocalStorage",
+            "module": "Plugins"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "unknown tag: submodules",
+            "line": " src\\saveManager-1.0.1.js:214"
+        }
+    ]
+}

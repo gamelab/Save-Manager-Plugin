@@ -1,0 +1,105 @@
+<html>
+<head>
+</head>
+<body>
+
+	<div id="testGameContainer"></div>
+
+	<script src="../lib/kiwi.js"></script>
+	<script src="../src/saveManager-1.0.1.js"></script>
+	<script type="text/javascript">
+	
+	//Create a state
+	var myState = new Kiwi.State("myStateName");
+	
+	//Create an update function on the state
+	myState.update = function() {
+		//Call the base update function ( equivalent to super.update )
+		Kiwi.State.prototype.update.call(this);
+	}
+
+	//Preload the pirate. Arrrgh
+	myState.preload = function () {
+        this.addImage('pirate', '../assets/pirate.png');
+	};
+
+	myState.create = function () {
+
+		var text = new Kiwi.GameObjects.Textfield(this, 'Click/Touch to add a Pirate!.', this.game.stage.width / 2, 10, '#000', 12);
+		var text2 = new Kiwi.GameObjects.Textfield(this, ' Close and reopen the browser to see all of the your pirates still there!', this.game.stage.width / 2, 30, '#000', 12);
+		
+		text.textAlign = 'center';
+		text2.textAlign = 'center';
+
+		this.addChild(text);
+		this.addChild(text2);
+
+
+		//Create an array of pirates			
+		this.pirates = [];
+		this.pirateData = [];
+
+ 		if (this.game.saveManager.localStorage.exists('pirates')) {
+
+            //Get the data
+            this.pirateData = this.game.saveManager.localStorage.getData('pirates');
+            
+            //Create each jeep
+            for (var i = 0; i < this.pirateData.length; i++) {
+                this.createPirate(this.pirateData[i].x, this.pirateData[i].y, false);
+            }
+        
+        //Create default state
+        } else {
+            this.game.saveManager.localStorage.add('pirates', [], true);
+            this.createPirate(0,0,true);
+        }
+
+        //Add Event
+   	   	this.game.input.onUp.add(this.newPirate, this);
+	};
+
+	myState.newPirate = function(x,y,timeup,timedown,duration,pointer) {
+
+		var overlap = false;
+        for (var i = 0; i < this.pirates.length; i++) {
+
+            //If it overlaps then remove the pirate
+            if (Kiwi.Geom.Intersect.circleToRectangle(pointer.circle, this.pirates[i].box.hitbox).result) {
+                overlap = true;
+                this.removeChild(this.pirates[i]);
+                this.pirates.splice(i, 1);
+                this.pirateData.splice(i, 1);
+                this.game.saveManager.localStorage.edit('pirates', this.pirateData, true);
+                i--;
+            }
+        
+        }
+        //If no overlaps create a pirate 
+        if(overlap == false) {
+			this.createPirate(x,y,true);
+		}
+	};
+
+	//Creates a new pirate and then updates localStorage.
+	myState.createPirate = function(x,y,save) {
+		var p = new Kiwi.GameObjects.Sprite(this, this.textures.pirate,x,y,false);
+		this.addChild(p);
+
+
+		if(save) {
+        	this.pirateData.push({ x: x, y: y });
+        	this.game.saveManager.localStorage.add('pirates', this.pirateData, true);
+    	}
+
+		this.pirates.push(p);
+	}
+
+	//Create the game with the save plugin.
+	var myGame = new Kiwi.Game("testGameContainer","testGame",myState,{ plugins:["SaveGame"]});
+
+	</script>
+
+</body>
+
+</html>
