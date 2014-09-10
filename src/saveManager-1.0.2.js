@@ -21,7 +21,7 @@ Kiwi.Plugins.SaveGame = {
     * @type String
     * @public
     */
-    version: '1.0.1',
+    version: '1.0.2',
     
     /**
     * The minimum version of Kiwi.js required to run this plugin in semver (semantic versioning) format
@@ -29,7 +29,7 @@ Kiwi.Plugins.SaveGame = {
     * @type String
     * @public
     */
-    minimumKiwiVersion:'0.6.0'
+    minimumKiwiVersion:'1.0.0'
 };
 
 Kiwi.PluginManager.register(Kiwi.Plugins.SaveGame);
@@ -179,7 +179,7 @@ Object.defineProperty(Kiwi.Plugins.SaveGame.SaveManager.prototype, "edit", {
 */
 Object.defineProperty(Kiwi.Plugins.SaveGame.SaveManager.prototype, "remove", {
     get: function () {
-        return this.current.delete.bind(this.current);
+        return this.current.remove.bind(this.current);
     },
     enumerable: true,
     configurable: true
@@ -368,7 +368,7 @@ Kiwi.Plugins.SaveGame.LocalStorage.prototype.add = function(key, data, save) {
         this._data[key] = data;
         
         if(save === true) {
-            this.save();
+            return this.save();
         } else {
             return true;
         }
@@ -414,7 +414,8 @@ Kiwi.Plugins.SaveGame.LocalStorage.prototype.edit = function(key, data, save) {
 */        
 Kiwi.Plugins.SaveGame.LocalStorage.prototype.getData = function(key) {
     if (this.supported === true) {
-        if (this._data[key]) {
+
+        if (typeof this._data[key] !== 'undefined') {
             return this._data[key];
         }
     }
