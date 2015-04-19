@@ -1,6 +1,6 @@
 {
     "name": "SaveManager",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "This plugin helps to bring some basic 'save game' functionality by the way of LocalStorage. In the future other save game methods/functionality may also be developed and so this feature comes with built in mind.",
     "author": {
         "name" : "GameLab",

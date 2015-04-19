@@ -2,7 +2,7 @@
 * @module Kiwi
 * @submodule Kiwi.Plugins
 * @namespace Kiwi.Plugins
-* @class ParticlePack1
+* @class SaveGame
 * @main
 */
 Kiwi.Plugins.SaveGame = {
@@ -21,7 +21,7 @@ Kiwi.Plugins.SaveGame = {
     * @type String
     * @public
     */
-    version: '1.0.2',
+    version: '1.0.3',
     
     /**
     * The minimum version of Kiwi.js required to run this plugin in semver (semantic versioning) format
@@ -29,7 +29,7 @@ Kiwi.Plugins.SaveGame = {
     * @type String
     * @public
     */
-    minimumKiwiVersion:'1.0.0'
+    minimumKiwiVersion: '1.3.0'
 };
 
 Kiwi.PluginManager.register(Kiwi.Plugins.SaveGame);
@@ -345,7 +345,7 @@ Kiwi.Plugins.SaveGame.LocalStorage.prototype._create = function() {
     
     } catch (e) {
 
-        console.log('Can not use localstorage due to memory limitations.');
+        Kiwi.Log.log(' Kiwi.Plugins.SaveGame: Cannot use localStorage due to memory limitations.', '#error', '#saveGame');
         this._supported = false;
     }    
 }
@@ -490,7 +490,7 @@ Kiwi.Plugins.SaveGame.LocalStorage.prototype.save = function() {
         return true;
 
     } catch (e) {
-        console.log('Localstorage is full. Could not update.');
+        Kiwi.Log.log(' Kiwi.Plugins.SaveGame: LocalStorage is full. Could not update.', '#error', '#saveGame');
         return false;
     }
 
@@ -506,9 +506,8 @@ Kiwi.Plugins.SaveGame.LocalStorage.prototype.save = function() {
 Kiwi.Plugins.SaveGame.LocalStorage.prototype.load = function() {
 
     if(this.supported === true) {
-
         this._data = JSON.parse(localStorage.getItem(this.game.stage.name));
-        
+        Kiwi.Log.log(' Kiwi.Plugins.SaveGame: LocalStorage loaded successfully. ', '#saveGame');
         return true;
     }
 

@@ -1,7 +1,7 @@
 YUI.add("yuidoc-meta", function(Y) {
    Y.YUIDoc = { meta: {
     "classes": [
-        "Kiwi.Plugins.ParticlePack1",
+        "Kiwi.Plugins.SaveGame",
         "LocalStorage",
         "SaveManager"
     ],

@@ -1,4 +1,4 @@
-#Save Manager Plugin v1.0.2
+#Save Manager Plugin v1.0.3
 
 This is a free Kiwi plugin that provides an easy way for developers to manage different methods of saving information relating to a Kiwi Game. 
 
@@ -10,6 +10,11 @@ If you have any problems then feel free to contact us via our [contact page](htt
 
 
 ##Versions:
+1.0.3
+- Updated to latest Kiwi version.
+- Removed `console.logs` with `Kiwi.Logs` 
+- Minimum version of Kiwi is now 1.3.0
+
 1.0.2
 - Issue where the plugin could not update values when setting them to `false`
 
