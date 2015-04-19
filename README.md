@@ -1,5 +1,4 @@
 #Save Manager Plugin v1.0.2
--------------------------
 
 This is a free Kiwi plugin that provides an easy way for developers to manage different methods of saving information relating to a Kiwi Game. 
 
